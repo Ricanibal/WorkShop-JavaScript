@@ -11,6 +11,7 @@ GetCategorias().then(dataarray =>
             array.push(i.strCategory)
         inicializarselection(array)
         console.log("Categorias: ", array)
+        GetListaComidas(selection.value,0)
     }).catch(e =>{
 
         console.error("Fallo la traida de las categorias: ", e)
@@ -20,6 +21,7 @@ selection.addEventListener('change',(data) =>
 {
     GetListaComidas(selection.value,0)
 })
+
 function inicializarselection(array)
 {
     
