@@ -33,7 +33,7 @@
                               <a class="nav-link" href="#">Planes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contacto</a>
+                                <a class="nav-link" href="#footer">Contacto</a>
                             </li>
                         </ul>
                       </div>
@@ -42,30 +42,30 @@
             </div>
         </div>
     </header>
-    
-    <main class="main-content" >
+
+    <main class="main-content" style="padding: 10%;">
       <section class="container">
         <div class="row py-4">
           <div class="card col-lg-7">
             <form id="formulario-calculadora">
-              <fieldset>
+              <fieldset class="row">
                 <legend class="h2 text-center">Calculadora de Calorías</legend>
-                <div class="mb-3">
+                              
+                <div class="mb-3 col-5">
                   <label for="edad" class="form-label h6">Edad</label>
                   <input type="number" id="edad" class="form-control" min="15" max="80" placeholder="Digíte su edad">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-5">
                   <label for="peso" class="form-label h6">Peso</label>
                   <input type="number" id="peso" min="0" class="form-control" placeholder="Digíte su peso en kilogramos">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 col-5">
                   <label for="altura" class="form-label h6">Altura</label>
                   <input type="number" id="altura" min="0" class="form-control" placeholder="Digíte su altura en centímetros">
                 </div>
-
-                <div class="mb-3">
+                <div class="mb-3 col-5">
                   <label for="actividad" class="form-label h6">Actividad física</label>
                   <select id="actividad" class="form-select">
                     <option></option>
@@ -77,7 +77,17 @@
                   </select>
                 </div>
                 
-                <section class="row m-2 h-100">
+                <div class="mb-3 col-5 ">
+                  <label for="altura" class="form-label h6">Cedula de ciudadania</label>
+                  <input type="number" id="CC" min="0" class="form-control" placeholder="Digíte su Cedula">
+                </div>
+
+                <div class="mb-3 col-5 ">
+                  <label for="altura" class="form-label h6">Otro documento</label>
+                  <input type="number" id="OtherDocumento" min="0" class="form-control" placeholder="Otro Documento">
+                </div>
+
+                <section class="m-2 h-100 row">
                   <span class="h6 p-0">Sexo</span>
                   <div class="form-check">
                     <input class="form-check-input" value="F" type="radio" name="genero" id="femenino" checked>
@@ -100,6 +110,7 @@
               </fieldset>
             </form>
           </div>
+      
           <article class="card col" id="resultado">
           </article>
         </div>
@@ -119,7 +130,7 @@
         </section>
       </main>
     
-    <footer class="footer row p-3">
+    <footer id="footer" class="footer row p-3">
       <div class="col d-flex justify-content-right align-items-center">
         <ul>
           <li>✖️ <a href="#">Instagram</a></li>

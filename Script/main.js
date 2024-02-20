@@ -1,7 +1,7 @@
 const formularioCalculadora = document.getElementById('formulario-calculadora')
 const resultado = document.getElementById("resultado")
 
-formularioCalculadora.addEventListener("submit", (evento)=>
+formularioCalculadora.addEventListener("submit", evento =>
 {
     evento.preventDefault(); // quitar el actualizado automatico de la pagina al precionar el boton 
     calcularCalorias()
@@ -27,7 +27,7 @@ function calcularCalorias() {
 
     let caloriaCalorias = actividad.value * ((multiplicadorTMB.peso * peso.value) + (multiplicadorTMB.altura * altura.value) - (multiplicadorTMB.edad * edad.value))
     
-    genero.value == "F" ? caloriaCalorias - 161 : caloriaCalorias + 5 
+    genero.value === "F" ? caloriaCalorias - 161 : caloriaCalorias + 5 
     caloriaCalorias = Math.floor(caloriaCalorias)
         //Formula hombres: valor actividad x (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5
 
@@ -45,8 +45,9 @@ function calcularCalorias() {
         </div>
     `
      // Volver a limpiar variables
-    desvanecerResultado()
+    //desvanecerResultado() Colocar un boton de limpienza
 }
+
 
 
 function mostrarMensajeDeError(msg) {
@@ -86,7 +87,7 @@ function aparecerResultado() {
 }
 
 function desvanecerResultado() {
-    let distancia = 8;
+    let distancia = 1;
 
     let id = setInterval(() => {
         distancia *= 2;
@@ -96,5 +97,5 @@ function desvanecerResultado() {
             resultado.style.display = 'none';
             resultado.style.top = 0;
         }
-    }, 2500)
+    }, 10)
 }
