@@ -4,24 +4,26 @@ var apiItemUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s="
 
 let selection = document.getElementById("CategoriaComidas")
 
+//se llama la funcion para que cuando apenas abra la aplicacion carge las categorias
 GetCategorias().then(dataarray =>
     {
     let array = []
         for(let i of dataarray.categories)
             array.push(i.strCategory)
         inicializarselection(array)
-        console.log("Categorias: ", array)
         GetListaComidas(selection.value,0)
     }).catch(e =>{
 
         console.error("Fallo la traida de las categorias: ", e)
     })
 
-selection.addEventListener('change',(data) =>
+// Se buscar escuchar el cambio en el selection 
+selection.addEventListener('change',() =>
 {
     GetListaComidas(selection.value,0)
 })
 
+//Se inicializa la selection para agregar todas  las categorias de filtro
 function inicializarselection(array)
 {
     
@@ -70,13 +72,13 @@ function GetListaComidas(categoria,tamanoinicial)
             for (const comida of data.meals)
             {
                 comidas.push(comida.strMeal) 
+                
             }
-            console.log("lista de comida ",comidas)
             GetComidaPlato(comidas,tamanoinicial)
         }
         else
         {
-            console.log('No se encontro la lista de comida.');
+            console.error('No se encontro la lista de comida.');
         }
 
     }).catch(function(error) {
@@ -105,7 +107,6 @@ async function GetComidaPlato(array,tamano)
                   </div>
                   <a href="${plato[0].strYoutube}" class="btn btn-primary">Tutorial</a>
                 </div>`
-                  console.log(plato[0])
                 }
                ) 
         }

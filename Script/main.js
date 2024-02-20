@@ -1,13 +1,34 @@
+const formularioCalculadora = document.getElementById('formulario-calculadora')
+const resultado = document.getElementById("resultado")
 
-
+formularioCalculadora.addEventListener("submit", (evento)=>
+{
+    evento.preventDefault(); // quitar el actualizado automatico de la pagina al precionar el boton 
+    calcularCalorias()
+})
 function calcularCalorias() {
-
+    aparecerResultado()
     const multiplicadorTMB = {
         peso: 10,
         altura: 6.25,
         edad: 5
     }
+    const edad = document.getElementById('edad')
+    const peso = document.getElementById('peso')
+    const altura = document.getElementById('altura')
+    const actividad = document.getElementById('actividad')
+    const genero = document.querySelector('input[name="genero"]:checked')
 
+    if(!(edad.value && peso.value && altura.value))
+    {
+        mostrarMensajeDeError("por favor complete todos los campos")
+        return
+    }
+
+    let caloriaCalorias = actividad.value * ((multiplicadorTMB.peso * peso.value) + (multiplicadorTMB.altura * altura.value) - (multiplicadorTMB.edad * edad.value))
+    
+    genero.value == "F" ? caloriaCalorias - 161 : caloriaCalorias + 5 
+    caloriaCalorias = Math.floor(caloriaCalorias)
         //Formula hombres: valor actividad x (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5
 
         //Formula mujeres: valor actividad x (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161
@@ -19,15 +40,17 @@ function calcularCalorias() {
         <div class=" card-body d-flex flex-column justify-content-center align-items-center h-100" id="calculo">
             <h5 class="card-title h2">Calorías requeridas</h5>
             <div class="mb-3 w-100">
-                <input class="form-control text-center" value=" kcal" style="font-size: 2rem" disabled>
+                <input class="form-control text-center" value="${caloriaCalorias}kcal" style="font-size: 2rem" disabled>
             </div>
         </div>
     `
      // Volver a limpiar variables
-
+    desvanecerResultado()
 }
 
+
 function mostrarMensajeDeError(msg) {
+    console.log("dasds")
     const calculo = document.querySelector('#calculo');
     if (calculo) {
         calculo.remove();
@@ -63,7 +86,7 @@ function aparecerResultado() {
 }
 
 function desvanecerResultado() {
-    let distancia = 1;
+    let distancia = 8;
 
     let id = setInterval(() => {
         distancia *= 2;
@@ -73,5 +96,5 @@ function desvanecerResultado() {
             resultado.style.display = 'none';
             resultado.style.top = 0;
         }
-    }, 10)
+    }, 2500)
 }

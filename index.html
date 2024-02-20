@@ -27,7 +27,7 @@
                                 <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Nutrición</a>
+                              <a class="nav-link" href="#CategoriaComidas">Nutrición</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link" href="#">Planes</a>
@@ -43,7 +43,7 @@
         </div>
     </header>
     
-    <main class="main-content">
+    <main class="main-content" >
       <section class="container">
         <div class="row py-4">
           <div class="card col-lg-7">
@@ -57,12 +57,12 @@
 
                 <div class="mb-3">
                   <label for="peso" class="form-label h6">Peso</label>
-                  <input type="number" id="peso" class="form-control" placeholder="Digíte su peso en kilogramos">
+                  <input type="number" id="peso" min="0" class="form-control" placeholder="Digíte su peso en kilogramos">
                 </div>
 
                 <div class="mb-3">
                   <label for="altura" class="form-label h6">Altura</label>
-                  <input type="number" id="altura" class="form-control" placeholder="Digíte su altura en centímetros">
+                  <input type="number" id="altura" min="0" class="form-control" placeholder="Digíte su altura en centímetros">
                 </div>
 
                 <div class="mb-3">
@@ -100,15 +100,21 @@
               </fieldset>
             </form>
           </div>
-         
+          <article class="card col" id="resultado">
+          </article>
         </div>
       </section>
     </main>
-      <main class="main-content">
+      <main class="main-content" style="padding: 3%;">
         <section class="container">
-          <select id="CategoriaComidas" class="form-select "></select> 
-          <div class="row d-flex justify-content-center " style="margin: 3%;" id="MarketPlate">
-            
+          <div class="row">
+            <div class="col-12">
+              <select id="CategoriaComidas" class="form-select "></select> 
+            </div>
+            <div class="col-12">
+              <div class="row d-flex justify-content-center " id="MarketPlate"></div>
+            </div>
+          </div>
           </div>
         </section>
       </main>
