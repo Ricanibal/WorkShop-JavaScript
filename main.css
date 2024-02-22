@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 body::-webkit-scrollbar {
     width: 8px;
 }
@@ -12,18 +15,8 @@ body::-webkit-scrollbar-thumb {
     background-color: rgb(122, 0, 0);
 }
 
-/* header */
-.header a {
-    font-size: 1.5em;
-}
-.header a.active {
-    text-decoration: underline;
-    color: #ff0000 !important;
-}
-
-
-
 /* main */
+
 .row {
     gap: 10px;
     overflow: hidden;
@@ -35,6 +28,7 @@ body::-webkit-scrollbar-thumb {
     background-position: center;
     background-size: cover;
 }
+
 .main-content .card {
     color:rgb(223, 223, 223);
     background-color: rgba(0, 0, 0, 0.5)
@@ -44,12 +38,13 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
-
 /* footer */
 .footer {
     background-color: #1c1e20;
     color: #a0a0a0;
     margin: 0;
+
+    transition: .4s all ease;
 }
 
 .footer ul {
@@ -65,7 +60,7 @@ body::-webkit-scrollbar-thumb {
 .cartascroll
 {
     height: 300px;
-      overflow-y: scroll; /* Esto agrega una barra de desplazamiento vertical cuando el contenido es más alto que la altura del contenedor */
-      border: 1px solid #ccc;
-      padding: 10px;
+    overflow-y: scroll; /* Esto agrega una barra de desplazamiento vertical cuando el contenido es más alto que la altura del contenedor */
+    border: 1px solid #ccc;
+    padding: 10px;
 }

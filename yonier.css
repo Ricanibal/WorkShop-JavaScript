@@ -1,0 +1,320 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+.noScroll{
+    overflow-y: hidden
+}
+
+body{
+    height: 100vh;
+}
+
+header{
+    width: 100%;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    background: #F3F3F2;
+    align-items: center;
+
+    position: fixed;
+    top: 0px;
+
+    animation: adjust-header linear both;
+    animation-timeline: scroll();
+    animation-range: 0 300px;
+
+    z-index: 10;
+}
+
+@keyframes adjust-header{
+    to{
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5px);
+        height: 10vh;
+        background: white;
+        border-bottom: .5px solid rgba(128, 128, 128, .4);
+    }
+}
+
+nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-solid{
+    font-size: 25px;
+}
+
+.ulNavbar{
+    height: 100%;
+    grid-area: ul;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.ulContent{
+    display: flex;
+    height: 100%;
+    gap: 20px;
+}
+
+.liNavbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    transition: .3s all ease;
+}
+
+.liNavbar a{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0px 6px;
+    text-decoration: none;
+
+    font-family: "Nunito Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(74, 74, 67);
+    transition: .2s all ease;
+}
+
+.liNavbar:hover{
+    background: #97A8BC;
+}
+
+.liNavbar a:hover{
+    color: white;
+}
+
+.logo{
+    grid-area: logo;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+main{
+    background: #F3F3F2;
+    transition: .4s all ease;
+}
+
+.welcome{
+    height: 100vh;
+    background-image: url("img/Doctora.png");
+    background-repeat: no-repeat;
+    background-position: 60% 40%;
+}
+
+.welcomeContainer{
+    width: 80%;
+    height: 100%;
+
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 100;
+}
+
+.welcomeContainer .content{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.content h1{
+    text-align: center;
+
+    font-size: 120px;
+    color: rgb(74, 74, 67);
+    text-transform: none;
+
+    font-family: 'Libre Caslon Display', serif;
+    font-weight: 400;
+}
+
+.content span, .btn-welcome, h4{
+    font-family: "Nunito Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(74, 74, 67);
+    background: none;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.content h4{
+    font-size: 16px;
+}
+
+.content .btn-welcome{
+    width: 40%;
+    height: 40px;
+
+    font-size: 14px;
+    border: none;
+    border: 1px solid rgb(74, 74, 67);
+
+    transition: .3s all ease;
+    cursor: pointer;
+}   
+
+.content .btn-welcome:hover{
+    border: none;
+    background: rgb(74, 74, 67);
+    color: white;
+}   
+
+.content .btn-welcome:hover a{
+    color: white;
+}   
+
+.btn-welcome a{
+    text-decoration: none;
+    font-family: "Nunito Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(74, 74, 67);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.texto{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.texto ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    nav{
+        position: relative;
+        justify-content: space-around;
+        margin: auto;
+    }
+
+    .blur{
+        filter: blur(3px);
+    }
+
+    .ulNavbar{
+        position: absolute;
+        flex-direction: column;
+        width: 70%;
+        height: 90vh;
+        margin-top: 100vh;
+        right: -90%;
+        background: #4A4A43;
+        transition: .3s all ease;
+        z-index: 100;
+        gap: 0;
+
+        /* -webkit-box-shadow: -17px 28px 53px -8px rgba(0,0,0,0.75);
+        -moz-box-shadow: -17px 28px 53px -8px rgba(0,0,0,0.75);
+        box-shadow: -17px 28px 53px -8px rgba(0,0,0,0.75); */
+        
+    }
+
+    .ulContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 0;
+        height: 80%;
+        width: 100%;
+    }
+
+    .ulContent li{
+        width: 100%;
+    }
+
+    .ulContent li a {
+        width: 100%;
+    }
+
+    .liNavbar a{
+        color: #F3F3F2;
+    }
+
+    .mostrarMenu{
+        right: 0;
+    }
+
+    .menu{
+        display: flex;
+    }
+
+    .welcome{
+        background-position: 10%;
+    }
+    .welcomeContainer{
+        width: 80%;
+    }
+
+    .welcomeContainer .content{
+        width: 100%;
+        height: 90%;
+    }
+
+    .content h1{
+        font-size: 70px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .welcomeContainer{
+        height: 100vh;
+    }
+    .content{
+        height: 50%;
+        margin-top: 30px;
+    }
+
+    .content h1{
+        font-size: 80px;
+    }
+
+    .header{
+        background: rgb(255, 255, 255);
+    }
+}
