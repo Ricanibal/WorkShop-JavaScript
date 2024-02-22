@@ -58,15 +58,15 @@ function GetListaComidas(categoria,tamanoinicial)
     let url = apiListaUrl + categoria
     fetch(url).then((response)=>
     {
-        if(!response.ok)
+        if(response.ok)
         {
-            throw new Error('Error en la solicitud. no llego la lista de categoria:' + response.status);
+            return response.json();
         }
-        return response.json();
+        throw new Error('Error en la solicitud. no llego la lista de categoria:' + response.status);
+        
     }).then((data)=>
     {
         let comidas = []
-        let pack =[]
         if(data)
         {
             for (const comida of data.meals)
