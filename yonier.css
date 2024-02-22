@@ -114,6 +114,7 @@ nav{
     align-items: center;
 }
 
+
 main{
     background: #F3F3F2;
     transition: .4s all ease;
@@ -317,4 +318,4 @@ main{
     .header{
         background: rgb(255, 255, 255);
     }
-}
+} 
