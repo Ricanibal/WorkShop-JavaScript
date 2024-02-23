@@ -16,12 +16,8 @@ GetCategorias().then(dataarray =>
 
         console.error("Fallo la traida de las categorias: ", e)
     })
-
 // Se buscar escuchar el cambio en el selection 
-selection.addEventListener('change',() =>
-{
-    GetListaComidas(selection.value,0)
-})
+selection.addEventListener('change',() => GetListaComidas(selection.value,caloriaCalorias) )
 
 //Se inicializa la selection para agregar todas  las categorias de filtro
 function inicializarselection(array)
@@ -53,7 +49,7 @@ async function GetCategorias()
 }
 
 // Esta funcion tiene como objectivo poder traer los nombres de los alimentos usando la categoria como filtro 
-function GetListaComidas(categoria,tamanoinicial)
+function GetListaComidas(categoria,Calorias)
 {
     let url = apiListaUrl + categoria
     fetch(url).then((response)=>
@@ -74,7 +70,7 @@ function GetListaComidas(categoria,tamanoinicial)
                 comidas.push(comida.strMeal) 
                 
             }
-            GetComidaPlato(comidas,tamanoinicial)
+            GetComidaPlato(comidas,Calorias)
         }
         else
         {
@@ -87,19 +83,20 @@ function GetListaComidas(categoria,tamanoinicial)
 }
 
 //Esta funcion sirve para generar las card de comida
-async function GetComidaPlato(array,tamano)
+async function GetComidaPlato(array,Calorias)
 {
     let market = document.getElementById("MarketPlate")
     market.innerHTML = ``
     for(let i = 0; i< 9; i++)
     {
-        if(array.length > (i+tamano))
-        {
-           await fetch(apiItemUrl + array[i+tamano]).then(
+           await fetch(apiItemUrl + array[i]).then(
                 async (response) =>{
                   let arrayaux = await response.json()
                   let plato = arrayaux.meals
-                  market.innerHTML += `<div class="card col-3" >
+                  let header = CalculoDeCalorias(Calorias)
+                  market.innerHTML += `
+                  <div class="card" style="width: 20rem;">
+                  <div class="card-header ${header[1]}"> ${header[0]} <br> Calorias: ${header[2]}</div>
                   <img src="${plato[0].strMealThumb}" class="card-img-top" alt="Plato de comida">
                   <div class="card-body cartascroll">
                     <h5 class="card-title">${plato[0].strMeal}</h5>
@@ -109,7 +106,37 @@ async function GetComidaPlato(array,tamano)
                 </div>`
                 }
                ) 
-        }
-       
     }
+}
+
+function CalculoDeCalorias(calorias)
+{
+    let backgroudColor ="";
+    let mensaje ="Usa la calculadora para ver como afecta este plato";
+    let PlatoCalorias = CaloriasAleatorias()
+    if(calorias>0)
+    {
+        if((calorias/2)<PlatoCalorias)
+        {
+            backgroudColor = "bg-danger text-black";
+            mensaje = "Este plato alto en calorias, lo que puede causar subidas de peso"
+        }
+        else if((calorias/3)<PlatoCalorias)
+        {
+            backgroudColor = "bg-success text-black"
+            mensaje = "Este plato es ideal para tu estilo de vida"
+        }
+        else 
+        {
+            backgroudColor = "bg-warning text-secondary"
+            mensaje = "Este plato es de baja calorias, ideal para personas en dieta"
+        }
+    }   
+    return [mensaje,backgroudColor,PlatoCalorias]
+}
+  
+
+function CaloriasAleatorias()
+{
+   return Math.floor((Math.random() * 1500)+200)
 }

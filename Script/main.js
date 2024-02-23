@@ -1,6 +1,6 @@
 const formularioCalculadora = document.getElementById('formulario-calculadora')
 const resultado = document.getElementById("resultado")
-
+let caloriaCalorias = 0
 formularioCalculadora.addEventListener("submit", evento =>
 {
     evento.preventDefault(); // quitar el actualizado automatico de la pagina al precionar el boton 
@@ -25,7 +25,7 @@ function calcularCalorias() {
         return
     }
 
-    let caloriaCalorias = actividad.value * ((multiplicadorTMB.peso * peso.value) + (multiplicadorTMB.altura * altura.value) - (multiplicadorTMB.edad * edad.value))
+    caloriaCalorias = actividad.value * ((multiplicadorTMB.peso * peso.value) + (multiplicadorTMB.altura * altura.value) - (multiplicadorTMB.edad * edad.value))
     
     genero.value === "F" ? caloriaCalorias - 161 : caloriaCalorias + 5 
     caloriaCalorias = Math.floor(caloriaCalorias)
@@ -44,6 +44,7 @@ function calcularCalorias() {
             </div>
         </div>
     `
+    GetListaComidas("beef",caloriaCalorias)
      // Volver a limpiar variables
     //desvanecerResultado() Colocar un boton de limpienza
 }
