@@ -17,7 +17,7 @@ GetCategorias().then(dataarray =>
         console.error("Fallo la traida de las categorias: ", e)
     })
 // Se buscar escuchar el cambio en el selection 
-selection.addEventListener('change',() => GetListaComidas(selection.value,caloriaCalorias) )
+selection.addEventListener('change',() => GetListaComidas(selection.value,calculoCalorias) )
 
 //Se inicializa la selection para agregar todas  las categorias de filtro
 function inicializarselection(array)
