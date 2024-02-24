@@ -39,7 +39,7 @@ function calcularCalorias() {
         
     console.log(calculoCalorias)
 
-    GetListaComidas("beef",calculoCalorias)
+    GetListaComidas(selection.value,calculoCalorias)
 }
 
 function grupoPoblacional(edad) {

@@ -31,7 +31,6 @@ function inicializarselection(array)
     selection.innerHTML = option
 }
 
-
 // Esta funcion tiene como objectivo craer todos las categorias 
 async function GetCategorias()
 {
