@@ -56,12 +56,12 @@ function grupoPoblacional(edad) {
 function generoPersona(edad, peso, altura, actividad, genero, multiplicadorTMB){
     if(genero.id == 'femenino'){
 
-        //Formula mujeres: valor actividad x (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161
+        //Formula mujeres: valor actividad x ((10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161)
         calculoCalorias = actividad.value * ((multiplicadorTMB.peso * peso.value) +
                         (multiplicadorTMB.altura * altura.value) -
                         (multiplicadorTMB.edad * edad.value) - 161)
     } else if (genero.id == 'masculino'){
-        //Formula hombres: valor actividad x (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5
+        //Formula hombres: valor actividad x ((10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5)
         calculoCalorias = actividad.value * ((multiplicadorTMB.peso * peso.value) +
                         (multiplicadorTMB.altura * altura.value) -
                         (multiplicadorTMB.edad * edad.value) - 5)
