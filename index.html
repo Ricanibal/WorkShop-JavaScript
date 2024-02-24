@@ -40,7 +40,7 @@
               <i class="fa-solid fa-bars" onclick="abrirMenu()"></i>
           </div>
       </nav>
-    </header> 
+    </header>
 
     <main class="" id="mainSection">
 
@@ -65,7 +65,34 @@
             <form id="formulario-calculadora">
               <fieldset class="row">
                 <legend class="h2 text-center">Calculadora de Calorías</legend>
-                              
+
+                <div class="mb-3 col-5">
+                  <label for="nombre" class="form-label h6">Nombre</label>
+                  <input type="text" id="nombre" class="form-control" min="15" max="80" placeholder="Nombre">
+                </div>
+
+                <div class="mb-3 col-5">
+                  <label for="apellido" class="form-label h6">Apellido</label>
+                  <input type="text" id="apellido" class="form-control" min="15" max="80" placeholder="Apellido">
+                </div>
+                
+                <div class="mb-3 col-5 ">
+                  <label for="tipoIdentidad" class="form-label h6">Tipo de Documento</label>
+                  <select id="tipoIdentidad" class="form-select">
+                    <option></option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <option value="cedula">Cédula</option>
+                    <option value="pasaporte"> Pasaporte</option>
+                    <option value="dni">DNI</option>
+                    <option value="docExtranjero">Documento de Extranjería</option>
+                  </select>
+                </div>
+
+                <div class="mb-3 col-5 ">
+                  <label for="numIdentidad" class="form-label h6">Número de Identificación</label>
+                  <input type="number" id="numIdentidad" min="0" class="form-control" placeholder="Digite el número de ID">
+                </div>
+
                 <div class="mb-3 col-5">
                   <label for="edad" class="form-label h6">Edad</label>
                   <input type="number" id="edad" class="form-control" min="15" max="80" placeholder="Digíte su edad">
@@ -91,37 +118,34 @@
                     <option value="1.9">Ejercicio muy fuerte (dos veces al día, entrenamientos muy duros)</option>
                   </select>
                 </div>
-                
-                <div class="mb-3 col-5 ">
-                  <label for="altura" class="form-label h6">Cedula de ciudadania</label>
-                  <input type="number" id="CC" min="0" class="form-control" placeholder="Digíte su Cedula">
-                </div>
 
-                <div class="mb-3 col-5 ">
-                  <label for="altura" class="form-label h6">Otro documento</label>
-                  <input type="number" id="OtherDocumento" min="0" class="form-control" placeholder="Otro Documento">
-                </div>
-
-                <section class="m-2 h-100 row">
-                  <span class="h6 p-0">Sexo</span>
-                  <div class="form-check">
-                    <input class="form-check-input" value="F" type="radio" name="genero" id="femenino" checked>
-                    <label class="form-check-label" for="femenino">
-                      Femenino
-                    </label>
+                <section class="m-2 h-100 d-flex justify-content-center align-items-center">
+                  <span class="h6 p-0 mx-3">Sexo:</span>
+                  <div class="form-check mx-3">
+                      <input class="form-check-input" value="F" type="radio" name="genero" id="femenino" checked>
+                      <label class="form-check-label" for="femenino">
+                          Femenino
+                      </label>
                   </div>
-
-                  <div class="form-check">
-                    <input class="form-check-input" value="M" type="radio" name="genero" id="masculino">
-                    <label class="form-check-label" for="masculino">
-                      Masculino
-                    </label>
+              
+                  <div class="form-check mx-3">
+                      <input class="form-check-input" value="M" type="radio" name="genero" id="masculino">
+                      <label class="form-check-label" for="masculino">
+                          Masculino
+                      </label>
                   </div>
-                </section>
+              </section>
+              
                 <hr>
-                <div class="d-flex justify-content-center my-3">
-                  <button type="submit" class="btn btn-danger w-75" style="font-size: 1.5rem">Calcular</button>
-                </div>
+                <div class="d-flex justify-content-center">
+                  <div class="my-3 mx-3">
+                      <button type="submit" class="btn btn-primary" style="font-size: 1.2rem">Calcular</button>
+                  </div>
+                  <div class="my-3 mx-3">
+                    <button type="reset" onclick="desvanecerResultado()" class="btn btn-primary" style="font-size: 1.2rem">Restablecer</button>
+                  </div>
+              </div>
+              
               </fieldset>
             </form>
           </div>
@@ -135,7 +159,7 @@
         <section class="container">
           <div class="row">
             <div class="col-12">
-              <select id="CategoriaComidas" class="form-select "></select> 
+              <select id="CategoriaComidas" class="form-select "></select>
             </div>
         </section>
 

@@ -38,6 +38,25 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
+#calculo {
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 80%; /* Establece un ancho máximo para el contenedor */
+    margin: 0 auto; /* Centra horizontalmente el contenedor */
+    box-sizing: border-box; /* Incluye el padding y el border en el ancho del contenedor */
+}
+
+#textoResultado{
+    color: black;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 100%; /* Establece un ancho máximo para el contenedor */
+    margin: 0 auto; /* Centra horizontalmente el contenedor */
+    box-sizing: border-box;
+}
+
 /* footer */
 .footer {
     background-color: #1c1e20;
